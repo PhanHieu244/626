@@ -15,6 +15,22 @@ public class PlayerData : BaseData
     public bool[] listSongs;
 
     public Action<int> onChangeDiamond;
+    
+    public long time =  7 * 24 * 60 * 60;
+    public string timeRegister = DateTime.Now.ToBinary().ToString();
+
+    public void SetTimeRegister(long timeSet)
+    {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = timeSet;
+        Save();
+    }
+
+    public void ResetTime()
+    {
+        time = 0;
+        Save();
+    }
 
     public override void Init()
     {
